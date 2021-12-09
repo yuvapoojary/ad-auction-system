@@ -1,0 +1,32 @@
+{
+  "name": "ad-auction-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon .",
+    "lint": "eslint . --fix",
+    "prettier": "prettier . -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuvapoojary/ad-auction-system"
+  },
+  "author": "yuvapoojary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuvapoojary/ad-auction-system/issues"
+  },
+  "homepage": "https://github.com/yuvapoojary/ad-auction-system#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  }
+}

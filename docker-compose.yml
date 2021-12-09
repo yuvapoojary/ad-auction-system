@@ -1,0 +1,54 @@
+version: '3.8'
+services:
+  auctioneer:
+    container_name: auctioneer
+    build: ./auctioneer-service
+    environment:
+      - PORT=7001
+    ports:
+      - '7001:7001'
+
+  bidder1:
+    container_name: bidder1
+    build: ./bidder-service
+    environment:
+      - PORT=8001
+      - BIDDER_ID=bidder1
+      - BID_VALUE=10
+      - DELAY_MS=50
+      - AUCTIONEER_URL=http://auctioneer:7001/registrations
+    depends_on:
+      - auctioneer
+  bidder2:
+    container_name: bidder2
+    build: ./bidder-service
+    environment:
+      - PORT=8002
+      - BIDDER_ID=bidder2
+      - BID_VALUE=150
+      - DELAY_MS=150
+      - AUCTIONEER_URL=http://auctioneer:7001/registrations
+    depends_on:
+      - auctioneer
+  bidder3:
+    container_name: bidder3
+    build: ./bidder-service
+    environment:
+      - PORT=8003
+      - BIDDER_ID=bidder3
+      - BID_VALUE=150
+      - DELAY_MS=100
+      - AUCTIONEER_URL=http://auctioneer:7001/registrations
+    depends_on:
+      - auctioneer
+  bidder4:
+    container_name: bidder4
+    build: ./bidder-service
+    environment:
+      - PORT=8004
+      - BIDDER_ID=bidder4
+      - BID_VALUE=500
+      - DELAY_MS=200
+      - AUCTIONEER_URL=http://auctioneer:7001/registrations
+    depends_on:
+      - auctioneer
